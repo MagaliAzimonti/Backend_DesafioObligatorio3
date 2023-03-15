@@ -41,16 +41,9 @@ class ProductManager {
 
   async getProductById(id) {
     try {
-      let stock = await this.getProducts();
-      stock = stock.find((prod) => prod.id === id);
-      function devolverId() {
-        if (stock) {
-          return stock;
-        } else {
-          return null;
-        }
-      }
-      return devolverId();
+      const stock = await this.getProducts();
+      const data = stock;
+      return data.find((producto) => producto.id === parseInt(id));
     } catch (error) {
       console.log(error);
     }
